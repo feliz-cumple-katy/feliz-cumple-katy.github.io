@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es" class="bloqueado">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4a1525">
+<title>¡Feliz cumple, Katy! 🪩 De: Luana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Shrikhand&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vino: #4a1525;
+    --vino-2: #5c1c30;
+    --vino-osc: #320c18;
+    --rosa: #ec86ab;
+    --rosa-2: #e06f98;
+    --rosa-3: #c9557f;
+    --rosa-claro: #f6b8cc;
+    --crema: #f8ede7;
+    --tinta: #6e1a36;
+    --oliva: #6b7d2a;
+    --rojo: #8f1b2d;
+    --mostaza: #f0b54a;
+    --naranja: #e8743b;
+    --script: "Pinyon Script", "Brush Script MT", cursive;
+    --retro: "Shrikhand", "Cooper Black", serif;
+    --maquina: "Special Elite", "Courier New", monospace;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html.bloqueado, html.bloqueado body { overflow: hidden; }
+  body {
+    font-family: var(--sans);
+    color: var(--crema);
+    background-color: var(--vino);
+    background-image:
+      radial-gradient(120% 50% at 50% 0%, #6a2238 0%, transparent 60%),
+      radial-gradient(90% 40% at 100% 60%, #3a0f1c 0%, transparent 70%),
+      radial-gradient(90% 40% at 0% 100%, #3a0f1c 0%, transparent 70%);
+    overflow-x: hidden;
+  }
+  /* Grano retro */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: .2;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  #confeti { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+  img { max-width: 100%; }
+
+  /* Efecto película: fugas de luz + viñeta */
+  .fx { position: fixed; inset: 0; z-index: 55; pointer-events: none; }
+  .fx::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(45% 35% at 0% 0%, rgba(255, 140, 60, .26), transparent 70%),
+      radial-gradient(35% 30% at 100% 100%, rgba(255, 90, 140, .2), transparent 70%);
+    mix-blend-mode: screen;
+    animation: fuga 8s ease-in-out infinite alternate;
+  }
+  .fx::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 140px rgba(0, 0, 0, .55); }
+  @keyframes fuga { from { opacity: .55; } to { opacity: 1; } }
+
+  /* Rayos de sol setenteros */
+  .rayos {
+    position: absolute; left: 50%; top: 50%;
+    z-index: -1;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    pointer-events: none;
+    background: repeating-conic-gradient(rgba(240, 181, 74, .11) 0 6deg, transparent 6deg 12deg);
+    -webkit-mask-image: radial-gradient(circle, #000 12%, transparent 62%);
+    mask-image: radial-gradient(circle, #000 12%, transparent 62%);
+    animation: girar 90s linear infinite;
+  }
+
+  /* Insignia tipo ráfaga */
+  .insignia-wrap { position: absolute; z-index: 3; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+  .insignia {
+    width: 100%; aspect-ratio: 1;
+    display: grid; place-items: center;
+    text-align: center;
+    background: var(--mostaza);
+    color: var(--vino-osc);
+    font-family: var(--retro);
+    line-height: 1.05;
+    animation: bamboleo 3s ease-in-out infinite;
+  }
+  @keyframes bamboleo { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(20deg); } }
+
+  /* Cintas de texto en movimiento */
+  .marquesina {
+    position: relative; z-index: 3;
+    width: 112%; margin-left: -6%;
+    padding: 10px 0;
+    overflow: hidden;
+    font-family: var(--retro);
+    font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+    color: var(--vino-osc);
+    background: var(--mostaza);
+    border-block: 3px solid var(--vino-osc);
+    transform: rotate(-2deg);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .3);
+  }
+  .marquesina.rosa { background: var(--rosa); transform: rotate(2deg); }
+  .marq-pista { display: flex; width: max-content; animation: marquesina 26s linear infinite; }
+  .marquesina.rosa .marq-pista { animation-direction: reverse; }
+  .marq-pista span { white-space: nowrap; padding-right: .6em; }
+  @keyframes marquesina { to { transform: translateX(-25%); } }
+
+  /* Ondas de los 70 */
+  .ondas svg { display: block; width: 100%; height: clamp(60px, 9vw, 96px); }
+  .ondas path { fill: none; stroke-width: 15; vector-effect: non-scaling-stroke; }
+
+  /* ---------- Piezas decorativas ---------- */
+  .estrella {
+    position: absolute;
+    z-index: 1;
+    aspect-ratio: 1;
+    transform: rotate(var(--r, 0deg));
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .4));
+    animation: titilar 3.2s ease-in-out infinite;
+    animation-delay: var(--d, 0s);
+  }
+  .estrella svg { display: block; width: 100%; height: 100%; }
+  @keyframes titilar {
+    0%, 100% { transform: rotate(var(--r, 0deg)) scale(1); opacity: 1; }
+    50% { transform: rotate(var(--r, 0deg)) scale(.88); opacity: .75; }
+  }
+
+  .disco {
+    position: absolute; top: 0;
+    z-index: 1;
+    width: clamp(84px, 16vw, 170px);
+    transform-origin: 50% 0;
+    animation: balanceo 5s ease-in-out infinite;
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .45));
+  }
+  .disco .hilo { width: 2px; height: clamp(18px, 5vw, 56px); margin: 0 auto; background: linear-gradient(#8a8a92, #e6e6ea); }
+  .disco .tapa { width: 16%; height: 7px; margin: 0 auto -2px; border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #6f6f78, #f2f2f5, #6f6f78); }
+  .disco .bola svg { display: block; width: 100%; height: auto; }
+  .disco .chispa { position: absolute; color: #fff; text-shadow: 0 0 8px #fff; animation: destello 2.6s ease-in-out infinite; }
+  @keyframes balanceo { 0%, 100% { transform: rotate(3deg); } 50% { transform: rotate(-3deg); } }
+
+  .reflejos { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .reflejos span {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, .55);
+    opacity: 0;
+    animation: destello var(--t, 3s) ease-in-out infinite;
+  }
+  @keyframes destello { 0%, 100% { opacity: 0; transform: scale(.4); } 50% { opacity: .85; transform: scale(1); } }
+
+  .cassette svg { display: block; width: 100%; height: auto; }
+  .carrete { transform-box: fill-box; transform-origin: center; animation: girar 4s linear infinite; }
+  @keyframes girar { to { transform: rotate(360deg); } }
+
+  .sticker {
+    filter:
+      drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+      drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
+      drop-shadow(0 10px 14px rgba(0, 0, 0, .4));
+  }
+
+  /* ---------- Intro: sobre ---------- */
+  .intro {
+    position: fixed; inset: 0;
+    z-index: 40;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 26px;
+    padding: 20px;
+    overflow: hidden;
+    background:
+      radial-gradient(70% 50% at 50% 45%, #6a2238 0%, transparent 70%),
+      var(--vino);
+    transition: opacity .8s ease, visibility .8s;
+  }
+  .intro.fuera { opacity: 0; visibility: hidden; }
+  .intro .disco { left: 8%; }
+  .intro .rayos { width: 150vmax; }
+  .intro-top {
+    position: relative; z-index: 2;
+    font-family: var(--retro);
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    text-align: center;
+    text-shadow: 3px 3px 0 var(--rosa-3);
+  }
+  .intro-hint { position: relative; z-index: 2; font-family: var(--maquina); font-size: 1rem; opacity: .8; }
+  .sobre-wrap { position: relative; z-index: 2; animation: flotar 3.2s ease-in-out infinite; }
+  @keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .sobre {
+    position: relative;
+    width: min(360px, 84vw);
+    aspect-ratio: 1.4;
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+    filter: drop-shadow(0 22px 30px rgba(0, 0, 0, .4));
+  }
+  .sobre:focus-visible { outline: 3px solid var(--rosa-claro); outline-offset: 8px; border-radius: 8px; }
+  .sobre-atras { position: absolute; inset: 0; background: var(--rosa-3); border-radius: 6px; }
+  .sobre-carta {
+    position: absolute; left: 7%; right: 7%; top: 6%; height: 88%;
+    z-index: 2;
+    background: var(--crema);
+    border-radius: 3px;
+    display: flex; flex-direction: column; align-items: center;
+    padding-top: 8%;
+    color: var(--tinta);
+    transition: transform .9s cubic-bezier(.2, .8, .2, 1) .5s;
+  }
+  .sobre-carta span { font-family: var(--script); font-size: clamp(1.8rem, 7vw, 2.4rem); line-height: 1.1; }
+  .sobre-carta small { font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+  .sobre-frente {
+    position: absolute; inset: 0;
+    z-index: 3;
+    background: var(--rosa);
+    border-radius: 6px;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+  }
+  .sobre-solapa {
+    position: absolute; left: 0; right: 0; top: 0; height: 52%;
+    z-index: 4;
+    background: var(--rosa-2);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: 50% 0;
+    transition: transform .6s ease, z-index 0s linear .3s;
+  }
+  .sello {
+    position: absolute; left: 50%; top: 52%;
+    z-index: 5;
+    width: 50px; height: 50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #a3304f, var(--tinta) 70%);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .3), inset 0 0 0 4px rgba(255, 255, 255, .12);
+    display: grid; place-items: center;
+    color: var(--rosa-claro);
+    font-size: 22px;
+    transition: opacity .25s ease;
+  }
+  .etiqueta {
+    position: absolute; left: 50%; bottom: 7%;
+    z-index: 4;
+    transform: translateX(-50%) rotate(-2deg);
+    background: var(--crema);
+    color: var(--tinta);
+    padding: 4px 18px 6px;
+    white-space: nowrap;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .15);
+  }
+  .etiqueta p { display: flex; align-items: baseline; gap: 8px; line-height: 1.05; }
+  .etiqueta .lbl { font-family: var(--maquina); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; width: 42px; }
+  .etiqueta .nom { font-family: var(--script); font-size: clamp(1.4rem, 5.5vw, 1.75rem); }
+  .sobre.abierto .sobre-solapa { transform: rotateX(180deg); z-index: 1; }
+  .sobre.abierto .sobre-carta { transform: translateY(-58%); }
+  .sobre.abierto .sello { opacity: 0; }
+
+  /* ---------- Hero (estilo póster) ---------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    padding: 110px 16px 36px;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 26px;
+    overflow: hidden;
+  }
+  .hero .disco { left: 3%; }
+  .cassette-deco {
+    position: absolute; right: -3%; top: 3%;
+    z-index: 1;
+    width: clamp(120px, 24vw, 230px);
+    transform: rotate(-16deg);
+    filter: drop-shadow(0 12px 16px rgba(0, 0, 0, .4));
+  }
+  .frase-top {
+    position: relative; z-index: 2;
+    max-width: 400px;
+    text-align: center;
+    font-family: var(--maquina);
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
+    line-height: 1.45;
+  }
+  .escena .rayos { width: 190%; }
+  .escena .insignia-wrap { left: 61%; top: -3%; width: 21%; }
+  .escena .insignia { font-size: 3cqw; }
+
+  /* Entrada: todo cae desde arriba al abrir el sobre */
+  .hero .escena, .hero .disco, .hero .cassette-deco, .hero .frase-top {
+    transition: translate 1.2s cubic-bezier(.2, 1.25, .35, 1), opacity .6s ease;
+  }
+  .hero .frase-top { transition-delay: .15s; }
+  .hero .escena { transition-delay: .3s; }
+  .hero .disco { transition-delay: .45s; }
+  .hero .cassette-deco { transition-delay: .55s; }
+  html.bloqueado .hero .escena { translate: 0 -110vh; }
+  html.bloqueado .hero .disco { translate: 0 -120%; }
+  html.bloqueado .hero .cassette-deco { translate: 0 -160%; }
+  html.bloqueado .hero .frase-top { translate: 0 -40px; opacity: 0; }
+  .escena {
+    position: relative; z-index: 2;
+    width: min(560px, 92vw);
+    aspect-ratio: 1 / .95;
+    margin-bottom: clamp(36px, 9vw, 70px);
+    container-type: inline-size;
+  }
+  .sobre-abierto {
+    position: absolute; left: 14%; right: 3%; top: 32%; bottom: 6%;
+    background: var(--rosa-2);
+    border-radius: 4px;
+    transform: rotate(7deg);
+    box-shadow: 0 26px 50px rgba(0, 0, 0, .35);
+  }
+  .sobre-abierto::before {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 100%; height: 48%;
+    background: var(--rosa-3);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+  .sobre-abierto::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--rosa);
+    border-radius: 4px;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+  }
+  .tarjeta-titulo {
+    position: absolute; left: 0; top: 12%;
+    z-index: 2;
+    width: 80%;
+    aspect-ratio: 1.42;
+    padding: 7cqw 7cqw 6cqw;
+    background: var(--crema);
+    color: var(--tinta);
+    transform: rotate(-6deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .titulo { font-family: var(--serif); font-style: italic; font-weight: 400; line-height: .95; font-size: 6vw; font-size: 8.6cqw; }
+  .titulo .l1 { display: block; white-space: nowrap; }
+  .titulo .script { font-family: var(--script); font-style: normal; font-size: 1.45em; position: relative; top: .1em; margin-left: -.05em; }
+  .titulo .l2 { display: block; padding-left: 22%; font-size: 1.4em; margin-top: .05em; }
+  .sub-titulo { margin: 3cqw 8% 0 auto; text-align: right; font-size: 3.3cqw; line-height: 1.35; }
+  .pelicula {
+    position: absolute; right: 2%; top: 30%;
+    z-index: 3;
+    width: 22%;
+    padding: 3cqw 3cqw;
+    background: var(--rosa-claro);
+    transform: rotate(5deg);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, .35);
+    display: grid; gap: 2cqw;
+  }
+  .pelicula::before, .pelicula::after {
+    content: "";
+    position: absolute; top: 0; bottom: 0;
+    width: 1.4cqw;
+    background: repeating-linear-gradient(to bottom, transparent 0 1.1cqw, rgba(50, 12, 24, .8) 1.1cqw 2.3cqw);
+  }
+  .pelicula::before { left: .8cqw; }
+  .pelicula::after { right: .8cqw; }
+  .cuadro {
+    position: relative;
+    aspect-ratio: 1.4;
+    background: radial-gradient(circle at 40% 35%, #5a1d30, #1e070e 80%);
+    display: grid; place-items: center;
+    font-family: var(--script);
+    font-size: 9cqw;
+    line-height: 1;
+    color: var(--rosa-claro);
+    text-shadow: 0 0 2cqw rgba(246, 184, 204, .45);
+  }
+  .fecha-stamp {
+    position: absolute; right: 1cqw; bottom: .6cqw;
+    font-family: "Courier New", monospace;
+    font-size: 1.7cqw;
+    font-weight: 700;
+    color: #ff9a3c;
+    text-shadow: 0 0 4px rgba(255, 140, 40, .8);
+  }
+  .snoopy-hero {
+    position: absolute; left: -5%; bottom: -14%;
+    z-index: 4;
+    width: 27%;
+    transform: rotate(-7deg);
+  }
+  .llavero {
+    position: absolute; left: 46%; bottom: -12%;
+    z-index: 4;
+    width: 11%;
+    transform: rotate(14deg);
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .4));
+  }
+  .llavero svg { display: block; width: 100%; height: auto; }
+  .frases-bottom {
+    position: relative; z-index: 2;
+    width: min(900px, 100%);
+    display: flex; justify-content: space-between; gap: 20px;
+    font-family: var(--maquina);
+    font-size: clamp(.9rem, 2.4vw, 1.1rem);
+    line-height: 1.4;
+  }
+  .frases-bottom .der { text-align: right; }
+  .frases-bottom b { font-family: var(--script); font-weight: 400; font-size: 1.5em; color: var(--rosa-claro); }
+  .bajar {
+    position: relative; z-index: 2;
+    color: var(--rosa-claro);
+    font-family: var(--maquina);
+    font-size: 1rem;
+    text-decoration: none;
+    animation: rebote 2s ease-in-out infinite;
+  }
+  @keyframes rebote { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+  /* ---------- Secciones ---------- */
+  section { position: relative; padding: 70px 16px; }
+  .titulo-sec {
+    text-align: center;
+    font-family: var(--retro); font-weight: 400;
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0 var(--naranja), 6px 6px 0 rgba(0, 0, 0, .25);
+  }
+  .titulo-sec .script { font-family: var(--script); color: var(--rosa-claro); font-size: 1.3em; text-shadow: none; }
+  .bajada { text-align: center; font-family: var(--maquina); font-size: 1.05rem; opacity: .85; margin-bottom: 36px; }
+
+  /* ---------- Carta ---------- */
+  .papel {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 76px) clamp(24px, 7vw, 60px) clamp(40px, 7vw, 60px);
+    background: var(--crema);
+    color: var(--tinta);
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .35);
+    transform: rotate(-1deg);
+  }
+  .papel::before {
+    content: "";
+    position: absolute; inset: 12px;
+    border: 1.5px solid rgba(110, 26, 54, .18);
+    pointer-events: none;
+  }
+  .cinta {
+    position: absolute; top: -14px; left: 50%;
+    width: 130px; height: 30px;
+    transform: translateX(-50%) rotate(-3deg);
+    background: repeating-linear-gradient(45deg, rgba(236, 134, 171, .8) 0 8px, rgba(246, 184, 204, .8) 8px 16px);
+  }
+  .estampilla {
+    position: absolute; top: 26px; right: 26px;
+    width: 88px;
+    padding: 4px;
+    background: var(--rosa-claro);
+    border: 5px dotted var(--crema);
+    transform: rotate(6deg);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .12);
+  }
+  .estampilla-in {
+    border: 1.5px solid var(--tinta);
+    background: #fdeef3;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 4px 3px 3px;
+  }
+  .estampilla-in img { width: 72%; }
+  .estampilla-in span { font-size: 7px; font-weight: 700; letter-spacing: .12em; margin-top: 2px; }
+  .destinos { margin-bottom: 26px; }
+  .destinos p { display: flex; align-items: baseline; gap: 10px; line-height: 1.15; }
+  .destinos .etq { width: 50px; font-family: var(--maquina); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+  .destinos .nom { font-family: var(--script); font-size: clamp(2rem, 7vw, 2.4rem); }
+  .separador { text-align: center; letter-spacing: 10px; color: var(--rosa-3); margin: 6px 0 22px; }
+  .papel p.txt { font-family: var(--serif); font-size: 1.06rem; line-height: 1.85; margin-bottom: 1.05em; }
+  .papel p.saludo { font-weight: 600; font-size: 1.15rem; }
+  .cierre { font-family: var(--serif); font-style: italic; text-align: right; margin-top: 30px; }
+  .firma { font-family: var(--script); font-size: 3rem; line-height: 1.1; text-align: right; color: var(--rosa-3); }
+
+  /* ---------- Collage "that girl" ---------- */
+  .collage {
+    position: relative;
+    width: min(560px, 92vw);
+    aspect-ratio: .82;
+    margin: 0 auto;
+    container-type: inline-size;
+  }
+  .panel { position: absolute; overflow: hidden; box-shadow: 0 22px 44px rgba(0, 0, 0, .4); }
+  .panel-fresa {
+    left: 0; top: 0; width: 76%; height: 50%;
+    transform: rotate(-3deg);
+    background:
+      radial-gradient(rgba(249, 215, 126, .8) 0 .45cqw, transparent .55cqw) 0 0 / 6cqw 7cqw,
+      radial-gradient(rgba(249, 215, 126, .8) 0 .45cqw, transparent .55cqw) 3cqw 3.5cqw / 6cqw 7cqw,
+      radial-gradient(circle at 30% 25%, #ef4b4b, #b3172a 55%, #6d0b16);
+  }
+  .panel-ambar {
+    right: 0; bottom: 0; width: 80%; height: 58%;
+    transform: rotate(2.5deg);
+    background: linear-gradient(160deg, #e9bd78, #c98a42 55%, #8f5321);
+  }
+  .vertical {
+    position: absolute;
+    writing-mode: vertical-rl;
+    font-family: var(--script);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .panel-fresa .vertical {
+    left: 3%; top: 6%;
+    transform: rotate(180deg);
+    font-size: 15cqw;
+    color: #7d9234;
+    text-shadow: 0 .4cqw 0 rgba(30, 40, 10, .55);
+  }
+  .panel-ambar .vertical {
+    right: 2%; top: 4%;
+    font-size: 17cqw;
+    color: var(--rojo);
+    text-shadow: 0 .4cqw 0 rgba(255, 240, 220, .35);
+  }
+  .bold-it {
+    position: absolute;
+    color: #fff;
+    font-weight: 700; font-style: italic;
+    line-height: 1.25;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+  }
+  .panel-fresa .bold-it { left: 28%; right: 6%; top: 12%; font-size: 3.7cqw; }
+  .panel-fresa .bold-it p + p { margin-top: 2.5cqw; }
+  .tu-eres { right: 23%; top: 7%; font-size: 6.5cqw; }
+  .panel-ambar .frases { left: 24%; right: 26%; bottom: 8%; font-size: 3.6cqw; }
+  .panel-ambar .frases p + p { margin-top: 3cqw; }
+  .telefono {
+    position: absolute; left: 4%; bottom: 5%;
+    z-index: 3;
+    width: 30%;
+    aspect-ratio: .5;
+    padding: 6cqw 1.8cqw;
+    background: linear-gradient(145deg, #ffffff, #e3e3e8);
+    border-radius: 4.5cqw;
+    transform: rotate(-5deg);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, .4), inset 0 0 0 1px #cfcfd6;
+  }
+  .telefono::before {
+    content: "";
+    position: absolute; top: 2.6cqw; left: 50%;
+    width: 7cqw; height: .9cqw;
+    transform: translateX(-50%);
+    border-radius: 1cqw;
+    background: #b9b9c2;
+  }
+  .telefono::after {
+    content: "";
+    position: absolute; bottom: 1.6cqw; left: 50%;
+    width: 3.6cqw; height: 3.6cqw;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: .4cqw solid #c4c4cc;
+  }
+  .pantalla {
+    height: 100%;
+    border-radius: 1cqw;
+    background: linear-gradient(#fbe0e9, #f3a9c2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2cqw;
+    overflow: hidden;
+    color: var(--tinta);
+  }
+  .pantalla img { width: 82%; }
+  .pantalla span { font-family: var(--script); font-size: 5cqw; }
+  .fresa-emoji { position: absolute; z-index: 4; font-size: 13cqw; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .4)); }
+
+  /* ---------- Playlist ---------- */
+  .musica-visual { position: relative; width: min(420px, 92vw); margin: 0 auto 44px; padding-top: 38%; }
+  .vinilo {
+    position: absolute; right: 0; top: 0;
+    width: 58%; aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .45);
+  }
+  .vinilo-disco {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, var(--vino-osc) 0 2.5%, var(--rosa) 3% 17%, #111 17.5% 19%, transparent 19.5%),
+      repeating-radial-gradient(circle, #141414 0 1.5px, #262626 1.5px 3px);
+    animation: girar 4s linear infinite;
+  }
+  .vinilo-disco span {
+    position: absolute; left: 50%; top: 50%;
+    translate: -50% -50%;
+    margin-top: -9%;
+    font-family: var(--retro);
+    font-size: clamp(.55rem, 2vw, .75rem);
+    color: var(--vino-osc);
+  }
+  .vinilo::after {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 20deg, transparent 0 8%, rgba(255, 255, 255, .14) 13%, transparent 19% 58%, rgba(255, 255, 255, .1) 63%, transparent 69%);
+  }
+  .cassette-grande {
+    position: relative; z-index: 1;
+    width: 80%;
+    transform: rotate(-4deg);
+    filter: drop-shadow(0 20px 26px rgba(0, 0, 0, .4));
+  }
+  .temas { list-style: none; max-width: 540px; margin: 0 auto; display: grid; gap: 18px; }
+  .tema {
+    padding: 12px 12px 6px;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(246, 184, 204, .22);
+    border-radius: 18px;
+  }
+  .tema-head { display: flex; align-items: center; gap: 10px; margin: 0 4px 10px; font-size: .92rem; }
+  .lado {
+    flex: none;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--rosa);
+    color: var(--vino-osc);
+    font-weight: 700; font-size: .78rem; letter-spacing: .08em;
+  }
+  .tema-head em { font-family: var(--maquina); font-style: normal; opacity: .85; }
+  .tema iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
+
+  /* ---------- Final ---------- */
+  .final { text-align: center; padding-bottom: 0; overflow: hidden; }
+  .piso {
+    width: 160%; height: 230px;
+    margin: 50px 0 -60px -30%;
+    background: repeating-conic-gradient(var(--rosa-claro) 0 25%, var(--vino-2) 0 50%) 0 0 / 80px 80px;
+    transform: perspective(260px) rotateX(58deg);
+    transform-origin: 50% 0;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%);
+    mask-image: linear-gradient(to bottom, transparent, #000 45%);
+    animation: piso 1.4s steps(2) infinite;
+  }
+  @keyframes piso { 0% { filter: brightness(1); } 100% { filter: brightness(1.35) saturate(1.2); } }
+  .final .grande { font-family: var(--script); font-size: clamp(3rem, 12vw, 5rem); line-height: 1.1; color: var(--rosa-claro); }
+  .final .de { font-family: var(--serif); font-style: italic; font-size: 1.2rem; margin-top: 8px; }
+  .final .snoopy-final { width: min(170px, 42vw); margin: 30px auto 0; display: block; transform: rotate(4deg); }
+  .mas {
+    margin-top: 30px;
+    padding: 12px 26px;
+    font: inherit; font-weight: 500;
+    color: var(--vino-osc);
+    background: var(--rosa-claro);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .mas:hover { background: #fff; transform: translateY(-2px); }
+
+  @media (max-width: 640px) {
+    .hero { padding-top: 150px; }
+    .snoopy-hero { left: -1%; }
+    .estampilla { width: 70px; top: 22px; right: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Degradados compartidos (plata) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="plata" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdfdff"/><stop offset=".4" stop-color="#b4b4bc"/>
+      <stop offset=".6" stop-color="#7f7f88"/><stop offset="1" stop-color="#e2e2e8"/>
+    </linearGradient>
+    <radialGradient id="plataCorazon" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d4d4da"/>
+      <stop offset=".7" stop-color="#8d8d96"/><stop offset="1" stop-color="#c9c9d0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<canvas id="confeti"></canvas>
+<div class="fx" aria-hidden="true"></div>
+
+<!-- ===== Intro: sobre cerrado ===== -->
+<div class="intro" id="intro">
+  <div class="rayos"></div>
+  <div class="reflejos"></div>
+  <div class="disco"><div class="hilo"></div><div class="tapa"></div><div class="bola"></div></div>
+  <span class="estrella" style="right:10%;top:12%;width:34px;--r:12deg"></span>
+  <span class="estrella" style="right:20%;top:22%;width:20px;--r:-10deg;--d:.8s"></span>
+  <span class="estrella" style="left:7%;bottom:16%;width:38px;--r:-14deg;--d:.4s"></span>
+  <span class="estrella" style="left:18%;bottom:9%;width:22px;--r:20deg;--d:1.2s"></span>
+  <span class="estrella" style="right:9%;bottom:12%;width:28px;--r:4deg;--d:1.6s"></span>
+
+  <p class="intro-top">Correo especial para Katy 💌</p>
+  <div class="sobre-wrap">
+    <div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Abrir la carta de Luana para Katy">
+      <div class="sobre-atras"></div>
+      <div class="sobre-carta"><small>Hoy es su día</small><span>¡Feliz cumple!</span></div>
+      <div class="sobre-frente"></div>
+      <div class="etiqueta">
+        <p><span class="lbl">De:</span><span class="nom">Luana</span></p>
+        <p><span class="lbl">Para:</span><span class="nom">Katy</span></p>
+      </div>
+      <div class="sobre-solapa"></div>
+      <div class="sello">♥</div>
+    </div>
+  </div>
+  <p class="intro-hint">Toca el sobre para abrirlo</p>
+</div>
+
+<!-- ===== Hero estilo póster ===== -->
+<header class="hero">
+  <div class="reflejos"></div>
+  <div class="disco">
+    <div class="hilo"></div><div class="tapa"></div><div class="bola"></div>
+    <span class="chispa" style="left:12%;top:58%;font-size:18px">✦</span>
+    <span class="chispa" style="right:6%;top:80%;font-size:12px;animation-delay:1.1s">✦</span>
+  </div>
+  <div class="cassette cassette-deco" data-l1="Mixtape" data-l2="LADO A"></div>
+
+  <span class="estrella" style="left:3%;top:58%;width:clamp(26px,5vw,44px);--r:-12deg"></span>
+  <span class="estrella" style="left:11%;top:66%;width:clamp(18px,3vw,28px);--r:18deg;--d:.6s"></span>
+  <span class="estrella" style="left:4%;top:74%;width:clamp(20px,3.6vw,34px);--r:6deg;--d:1.3s"></span>
+  <span class="estrella" style="left:14%;top:80%;width:clamp(14px,2.4vw,22px);--r:-20deg;--d:2s"></span>
+  <span class="estrella" style="right:4%;top:30%;width:clamp(22px,4vw,38px);--r:10deg;--d:.3s"></span>
+  <span class="estrella" style="right:12%;top:36%;width:clamp(14px,2.6vw,24px);--r:-8deg;--d:1s"></span>
+  <span class="estrella" style="right:3%;top:42%;width:clamp(16px,3vw,28px);--r:24deg;--d:1.7s"></span>
+
+  <p class="frase-top">Tacones, brillo y buena vibra: hoy se celebra su día a lo grande ✨</p>
+
+  <div class="escena">
+    <div class="rayos"></div>
+    <div class="sobre-abierto"></div>
+    <div class="tarjeta-titulo">
+      <h1 class="titulo">
+        <span class="l1">¡Feliz <span class="script">Cumple,</span></span>
+        <span class="l2">Katy!</span>
+      </h1>
+      <p class="sub-titulo">Brillo, chisme y<br>solo buenas vibras ✨</p>
+    </div>
+    <div class="insignia-wrap"><div class="insignia"><span>¡Hoy es<br>su día!</span></div></div>
+    <div class="pelicula" aria-hidden="true">
+      <div class="cuadro">K</div>
+      <div class="cuadro">A</div>
+      <div class="cuadro">T</div>
+      <div class="cuadro">Y<span class="fecha-stamp">'26 10 13</span></div>
+    </div>
+    <img class="snoopy-hero sticker" src="snoopy.png" alt="Snoopy con globos y una torta de cumpleaños">
+    <div class="llavero">
+      <svg viewBox="0 0 120 180" aria-hidden="true">
+        <circle cx="60" cy="20" r="15" fill="none" stroke="url(#plata)" stroke-width="5"/>
+        <rect x="55" y="33" width="10" height="22" rx="5" fill="none" stroke="url(#plata)" stroke-width="4"/>
+        <path d="M60 172 C 22 142, 6 116, 6 92 C 6 72, 21 58, 38 58 C 48 58, 56 63, 60 71 C 64 63, 72 58, 82 58 C 99 58, 114 72, 114 92 C 114 116, 98 142, 60 172 Z" fill="url(#plataCorazon)" stroke="#7d7d86" stroke-width="1.5"/>
+        <path d="M24 86 C 26 74, 36 67, 46 69" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="frases-bottom">
+    <p>Risas, baile y recuerdos<br>inolvidables la esperan.</p>
+    <p class="der">De: <b>Luana</b><br>Para: <b>Katy</b> 💌</p>
+  </div>
+  <a class="bajar" id="bajar" href="#carta">Desliza para leer su carta ↓</a>
+</header>
+
+<div class="marquesina" aria-hidden="true">
+  <div class="marq-pista">
+    <span>★ ¡Feliz cumple, miss Katy! ★ De: Luana ★ Brillo, chisme y buenas vibras ★ Puro disco ★</span>
+    <span>★ ¡Feliz cumple, miss Katy! ★ De: Luana ★ Brillo, chisme y buenas vibras ★ Puro disco ★</span>
+    <span>★ ¡Feliz cumple, miss Katy! ★ De: Luana ★ Brillo, chisme y buenas vibras ★ Puro disco ★</span>
+    <span>★ ¡Feliz cumple, miss Katy! ★ De: Luana ★ Brillo, chisme y buenas vibras ★ Puro disco ★</span>
+  </div>
+</div>
+
+<!-- ===== La carta ===== -->
+<section id="carta">
+  <article class="papel">
+    <span class="cinta"></span>
+    <div class="estampilla" aria-hidden="true">
+      <div class="estampilla-in"><img src="snoopy.png" alt=""><span>CORREO ♥ 2026</span></div>
+    </div>
+
+    <div class="destinos">
+      <p><span class="etq">Para</span><span class="nom">Katy</span></p>
+      <p><span class="etq">De</span><span class="nom">Luana</span></p>
+    </div>
+    <div class="separador">✦ ♥ ✦</div>
+
+    <p class="txt saludo">Querida miss:</p>
+    <p class="txt">A pesar del poco tiempo que la conozco, siento que me ha dejado muchas enseñanzas bonitas que atesoraré siempre, porque, de alguna manera, me han marcado mucho. Gracias por abrirse conmigo y darme la confianza para contarle mis preocupaciones. Gracias por acompañarme en los momentos difíciles, por escucharme y por ayudarme cuando más lo he necesitado.</p>
+    <p class="txt">Siento que me ha enseñado muchas cosas, no solo a través de sus palabras, sino también con su forma de ser. Me agrada mucho su manera de reírse, sus ocurrencias y esos momentos en los que me cuenta chismes. Es divertido y entretenido escuchar sus historias, conocer lo que ha aprendido en psicología y escucharla hablar sobre sus sueños y todo lo que ha vivido para llegar hasta donde está. Creo que, sin darse cuenta, se ha convertido en una inspiración para mí, porque me recuerda la importancia de seguir mis propios sueños y de encontrar, algún día, algo que realmente me apasione y de lo que pueda disfrutar.</p>
+    <p class="txt">Espero que el próximo año pueda casarse con su novio y que ambos sean muy felices. Le deseo de corazón muchísima felicidad, amor y cosas bonitas en esta nueva etapa de su vida. Espero que pueda cumplir todo aquello que se proponga y que nunca deje de perseguir sus sueños, así como nos inspira a hacerlo a quienes tenemos la oportunidad de conocerla.</p>
+    <p class="txt">Y, por mi parte, todavía me queda mucho por aprender y por vivir, pero me gustaría que, si en algún momento volvemos a encontrarnos, pueda contarle todas las cosas bonitas que he logrado y que usted sepa que, de alguna manera, también dejó una huellita en mi camino.</p>
+    <p class="txt">Gracias por ser usted, por su confianza, por sus consejos y por hacer que incluso las conversaciones más sencillas se conviertan en recuerdos bonitos. Me alegra haber tenido la oportunidad de conocerla y espero que la vida le devuelva todo lo bonito que comparte con los demás.</p>
+
+    <p class="cierre">Con mucho cariño y gratitud.</p>
+    <p class="firma">Luana</p>
+  </article>
+</section>
+
+<div class="ondas" aria-hidden="true">
+  <svg viewBox="0 0 1200 96" preserveAspectRatio="none">
+    <path d="M0 18 Q 150 -6 300 18 T 600 18 T 900 18 T 1200 18" stroke="#f8ede7"/>
+    <path d="M0 38 Q 150 14 300 38 T 600 38 T 900 38 T 1200 38" stroke="#f0b54a"/>
+    <path d="M0 58 Q 150 34 300 58 T 600 58 T 900 58 T 1200 58" stroke="#e8743b"/>
+    <path d="M0 78 Q 150 54 300 78 T 600 78 T 900 78 T 1200 78" stroke="#ec86ab"/>
+  </svg>
+</div>
+
+<!-- ===== Collage "that girl" ===== -->
+<section>
+  <h2 class="titulo-sec">Pura <span class="script">actitud</span></h2>
+  <p class="bajada">Y nunca lo olvide 💅</p>
+  <div class="collage">
+    <div class="panel panel-fresa">
+      <span class="vertical">That girl</span>
+      <div class="bold-it">
+        <p>Sus emociones fluyen un poquito diferente.</p>
+        <p>Se fija en cosas que otros no ven.</p>
+        <p>Se arregla para sí misma, pero igual deslumbra a todos.</p>
+      </div>
+    </div>
+    <div class="panel panel-ambar">
+      <span class="bold-it tu-eres">Usted es</span>
+      <span class="vertical">Única</span>
+      <div class="bold-it frases">
+        <p>Nunca deje de perseguir sus sueños.</p>
+        <p>Usted elige su mood ✨</p>
+      </div>
+    </div>
+    <div class="telefono">
+      <div class="pantalla"><img src="snoopy.png" alt=""><span>Katy</span></div>
+    </div>
+    <span class="fresa-emoji" style="right:-2%;top:-4%;transform:rotate(18deg)" aria-hidden="true">🍓</span>
+    <span class="fresa-emoji" style="left:30%;top:44%;font-size:9cqw;transform:rotate(-12deg)" aria-hidden="true">🍓</span>
+  </div>
+</section>
+
+<!-- ===== Playlist ===== -->
+<section>
+  <h2 class="titulo-sec">Nuestra <span class="script">playlist</span></h2>
+  <p class="bajada">Dele play y suba el volumen, cumpleañera 🔊</p>
+  <div class="musica-visual">
+    <div class="vinilo" aria-hidden="true"><div class="vinilo-disco"><span>Katy</span></div></div>
+    <div class="cassette cassette-grande" data-l1="Mixtape para Katy" data-l2="LADO A · DE: LUANA"></div>
+  </div>
+  <ol class="temas">
+    <li class="tema">
+      <div class="tema-head"><span class="lado">A1</span><em>Pa' cantarla a todo pulmón</em></div>
+      <iframe src="https://open.spotify.com/embed/track/4STBXIsd8A3IpGl9Exx2KU?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Francés Limón — Los Enanitos Verdes"></iframe>
+    </li>
+    <li class="tema">
+      <div class="tema-head"><span class="lado">A2</span><em>La del momento</em></div>
+      <iframe src="https://open.spotify.com/embed/track/3h5T5JypYU7huFiVYhv1dr?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="BbY WOW — KAROL G, Judeline, rusowsky"></iframe>
+    </li>
+    <li class="tema">
+      <div class="tema-head"><span class="lado">A3</span><em>Clásico de clásicos</em></div>
+      <iframe src="https://open.spotify.com/embed/track/0qYTZCo5Bwh1nsUFGZP3zn?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Felices los 4 — Maluma"></iframe>
+    </li>
+  </ol>
+</section>
+
+<div class="marquesina rosa" aria-hidden="true">
+  <div class="marq-pista">
+    <span>♥ Con mucho cariño y gratitud ♥ Que la vida le devuelva todo lo bonito ♥ Siga sus sueños ♥</span>
+    <span>♥ Con mucho cariño y gratitud ♥ Que la vida le devuelva todo lo bonito ♥ Siga sus sueños ♥</span>
+    <span>♥ Con mucho cariño y gratitud ♥ Que la vida le devuelva todo lo bonito ♥ Siga sus sueños ♥</span>
+    <span>♥ Con mucho cariño y gratitud ♥ Que la vida le devuelva todo lo bonito ♥ Siga sus sueños ♥</span>
+  </div>
+</div>
+
+<!-- ===== Final ===== -->
+<section class="final">
+  <span class="estrella" style="left:8%;top:20%;width:30px;--r:-10deg"></span>
+  <span class="estrella" style="right:9%;top:34%;width:24px;--r:16deg;--d:.9s"></span>
+  <span class="estrella" style="left:16%;bottom:22%;width:20px;--r:8deg;--d:1.5s"></span>
+  <p class="grande">¡Feliz cumpleaños, miss Katy!</p>
+  <p class="de">— Luana 💌</p>
+  <img class="snoopy-final sticker" src="snoopy.png" alt="">
+  <button class="mas" id="mas" type="button">🪩 Más confeti</button>
+  <div class="piso" aria-hidden="true"></div>
+</section>
+
+<script>
+  const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Siempre empezar desde arriba (sin recordar el scroll anterior ni el #ancla)
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo(0, 0);
+  window.addEventListener('load', () => window.scrollTo(0, 0));
+
+  document.getElementById('bajar').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('carta').scrollIntoView({ behavior: sinMovimiento ? 'auto' : 'smooth' });
+  });
+
+  // Insignia con forma de ráfaga
+  function rafaga(n, r1, r2) {
+    const pts = [];
+    for (let k = 0; k < n * 2; k++) {
+      const a = Math.PI * k / n, r = k % 2 ? r2 : r1;
+      pts.push(`${(50 + r * Math.cos(a)).toFixed(1)}% ${(50 + r * Math.sin(a)).toFixed(1)}%`);
+    }
+    return `polygon(${pts.join(',')})`;
+  }
+  document.querySelectorAll('.insignia').forEach(el => el.style.clipPath = rafaga(16, 50, 42));
+
+  // ---------- Bola disco (azulejos sobre una esfera) ----------
+  function bolaDisco() {
+    const R = 96, C = 100, filas = 12, cols = 14;
+    const L = [-0.45, 0.55, 0.7];
+    const P = (la, lo) => (C + R * Math.cos(la) * Math.sin(lo)).toFixed(1) + ',' + (C - R * Math.sin(la)).toFixed(1);
+    const id = 'luz' + Math.random().toString(36).slice(2, 8);
+    let s = `<defs><radialGradient id="${id}" cx="32%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1a0a10" stop-opacity=".55"/></radialGradient></defs>
+      <circle cx="100" cy="100" r="97" fill="#26262b"/>`;
+    for (let i = 0; i < filas; i++) {
+      const la1 = -Math.PI / 2 + Math.PI * i / filas, la2 = la1 + Math.PI / filas;
+      for (let j = 0; j < cols; j++) {
+        const lo1 = -Math.PI / 2 + Math.PI * j / cols, lo2 = lo1 + Math.PI / cols;
+        const la = (la1 + la2) / 2, lo = (lo1 + lo2) / 2;
+        const n = [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)];
+        const luz = Math.max(0, n[0] * L[0] + n[1] * L[1] + n[2] * L[2]);
+        let v = 55 + luz * 170 + (Math.random() * 60 - 30);
+        if (Math.random() < 0.07) v = 255;
+        v = Math.max(35, Math.min(255, Math.round(v)));
+        const fill = Math.random() < 0.18
+          ? `rgb(${v},${Math.round(v * .78)},${Math.round(v * .86)})`
+          : `rgb(${v},${v},${Math.min(255, v + 6)})`;
+        s += `<polygon points="${P(la1, lo1)} ${P(la1, lo2)} ${P(la2, lo2)} ${P(la2, lo1)}" fill="${fill}" stroke="#26262b" stroke-width=".7"/>`;
+      }
+    }
+    s += `<circle cx="100" cy="100" r="97" fill="url(#${id})"/>`;
+    return `<svg viewBox="0 0 200 200" aria-hidden="true">${s}</svg>`;
+  }
+
+  // ---------- Estrella plateada con facetas ----------
+  function estrellaSVG() {
+    const p = [];
+    for (let k = 0; k < 10; k++) {
+      const a = -Math.PI / 2 + k * Math.PI / 5, r = k % 2 ? 21 : 48;
+      p.push([50 + r * Math.cos(a), 50 + r * Math.sin(a)]);
+    }
+    const L = -2.36;
+    let s = '';
+    for (let k = 0; k < 10; k++) {
+      const a = p[k], b = p[(k + 1) % 10];
+      const m = Math.atan2((a[1] + b[1]) / 2 - 50, (a[0] + b[0]) / 2 - 50);
+      const v = Math.round(150 + 100 * Math.cos(m - L));
+      s += `<polygon points="50,50 ${a[0].toFixed(1)},${a[1].toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}" fill="rgb(${v},${v},${Math.min(255, v + 8)})"/>`;
+    }
+    s += `<polygon points="${p.map(q => q[0].toFixed(1) + ',' + q[1].toFixed(1)).join(' ')}" fill="none" stroke="#55555e" stroke-width="1.5" stroke-linejoin="round"/>`;
+    return `<svg viewBox="0 0 100 100" aria-hidden="true">${s}</svg>`;
+  }
+
+  // ---------- Cassette rosado ----------
+  function cassetteSVG(l1, l2) {
+    const carrete = cx => `<g class="carrete"><circle cx="${cx}" cy="76" r="12" fill="#fdeef3"/>${
+      [0, 60, 120, 180, 240, 300].map(a => `<rect x="${cx - 1.5}" y="64" width="3" height="5" fill="#5c1c30" transform="rotate(${a} ${cx} 76)"/>`).join('')
+    }<circle cx="${cx}" cy="76" r="4" fill="#5c1c30"/></g>`;
+    const tornillos = [[16, 16], [224, 16], [16, 136], [224, 136]]
+      .map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4" fill="#e9a3bb" stroke="#c76a8c"/>`).join('');
+    return `<svg viewBox="0 0 240 152" aria-hidden="true">
+      <rect x="3" y="3" width="234" height="146" rx="12" fill="#f4b3c8" stroke="#d47a9b" stroke-width="3"/>
+      ${tornillos}
+      <rect x="22" y="16" width="196" height="84" rx="6" fill="#fdeef3"/>
+      <rect x="22" y="16" width="196" height="16" rx="6" fill="#ec86ab"/>
+      <rect x="22" y="24" width="196" height="8" fill="#ec86ab"/>
+      <text x="120" y="28" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" font-weight="700" fill="#fff" letter-spacing="2">${l2}</text>
+      <text x="120" y="53" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="19" fill="#6e1a36">${l1}</text>
+      <rect x="62" y="60" width="116" height="32" rx="16" fill="#5c1c30"/>
+      <rect x="104" y="69" width="32" height="14" rx="2" fill="#3a0f1c"/>
+      ${carrete(88)}${carrete(152)}
+      <path d="M48 149 L62 114 L178 114 L192 149" fill="#e99ab5" stroke="#d47a9b" stroke-width="2"/>
+      <circle cx="84" cy="134" r="5" fill="#c76a8c"/><circle cx="156" cy="134" r="5" fill="#c76a8c"/>
+      <rect x="112" y="128" width="16" height="10" rx="2" fill="#c76a8c"/>
+    </svg>`;
+  }
+
+  document.querySelectorAll('.bola').forEach(el => el.innerHTML = bolaDisco());
+  const estrella = estrellaSVG();
+  document.querySelectorAll('.estrella').forEach(el => el.innerHTML = estrella);
+  document.querySelectorAll('.cassette').forEach(el => el.innerHTML = cassetteSVG(el.dataset.l1, el.dataset.l2));
+
+  // Reflejos de la bola disco
+  document.querySelectorAll('.reflejos').forEach(cont => {
+    for (let i = 0; i < 22; i++) {
+      const d = document.createElement('span');
+      const t = 3 + Math.random() * 5;
+      d.style.left = Math.random() * 100 + '%';
+      d.style.top = Math.random() * 100 + '%';
+      d.style.width = d.style.height = t + 'px';
+      d.style.animationDelay = (Math.random() * 4) + 's';
+      d.style.setProperty('--t', (2 + Math.random() * 3) + 's');
+      cont.appendChild(d);
+    }
+  });
+
+  // ---------- Confeti (rosado, plata y estrellitas) ----------
+  const canvas = document.getElementById('confeti');
+  const ctx = canvas.getContext('2d');
+  const colores = ['#f6b8cc', '#ec86ab', '#ffffff', '#d9d9df', '#f8ede7', '#c9557f', '#ffd6e3', '#b4b4bc'];
+  let piezas = [];
+  let anim = null;
+
+  function ajustar() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', ajustar);
+  ajustar();
+
+  function lanzar(n) {
+    for (let i = 0; i < n; i++) {
+      const r = Math.random();
+      piezas.push({
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * canvas.height * 0.6,
+        w: 6 + Math.random() * 6,
+        h: 8 + Math.random() * 8,
+        vx: -1.2 + Math.random() * 2.4,
+        vy: 2 + Math.random() * 3,
+        rot: Math.random() * Math.PI,
+        vr: -0.1 + Math.random() * 0.2,
+        forma: r < 0.55 ? 'rect' : r < 0.75 ? 'circ' : 'estrella',
+        color: colores[Math.floor(Math.random() * colores.length)]
+      });
+    }
+    if (!anim) anim = requestAnimationFrame(paso);
+  }
+
+  function paso() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of piezas) {
+      p.x += p.vx + Math.sin(p.y / 40) * 0.6;
+      p.y += p.vy;
+      p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.forma === 'rect') {
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      } else if (p.forma === 'circ') {
+        ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.beginPath();
+        for (let k = 0; k < 10; k++) {
+          const a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? p.w * .45 : p.w;
+          ctx.lineTo(rr * Math.cos(a), rr * Math.sin(a));
+        }
+        ctx.closePath(); ctx.fill();
+      }
+      ctx.restore();
+    }
+    piezas = piezas.filter(p => p.y < canvas.height + 30);
+    anim = piezas.length ? requestAnimationFrame(paso) : null;
+  }
+
+  // ---------- Abrir el sobre ----------
+  const intro = document.getElementById('intro');
+  const sobre = document.getElementById('sobre');
+  let abierta = false;
+
+  function abrir() {
+    if (abierta) return;
+    abierta = true;
+    sobre.classList.add('abierto');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      intro.classList.add('fuera');
+      document.documentElement.classList.remove('bloqueado');
+      lanzar(220);
+    }, sinMovimiento ? 200 : 1700);
+  }
+
+  sobre.addEventListener('click', abrir);
+  sobre.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); }
+  });
+  document.getElementById('mas').addEventListener('click', () => lanzar(160));
+</script>
+</body>
+</html>
